@@ -1,21 +1,15 @@
-# Step 1 - is to import the Flask class from the flask module
-from flask import Flask
+from flask import Flask, request, render_template
 
-# Step 2 - Create an app with the class - that is create an instance of the class Flask
-# We need to create a variable to hold the instance of the Flask class
-# We need to pass it the name of our app file using the __name__ variable
-app = Flask(__name__)
+app = Flask(__name__, )
 
-# Step 3 - Create routes or endpoints that will be available on the browser
-# Each endpoints starts with @ followed by the name of our variable or instance
-# Followed by .Method ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']
-# Followed by paranthesis within which we define our endpoint e.g. '/test'
-
-# Then under it, we pass a function that will be called each time our endoint is reached from the browser
 @app.get('/')
 def index():
-    return "My name is Kundil"
+    return render_template('index.html')
 
-@app.get('/age')
-def age():
-    return "I am 10 years old"
+@app.post('/')
+def post_data():
+    data = request.form
+    name = data.get('name')
+    age = data.get('age')
+    height = data.get('height')
+    return render_template('index2.html', name=name, age=age, height=height)

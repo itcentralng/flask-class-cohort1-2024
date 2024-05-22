@@ -1,0 +1,24 @@
+<p>Welcome to our website</p>
+    <form action='/' method='post'>
+    <input type='text' name='name'>
+    <input type='number' name='age'>
+    <input type='number' name='height'>
+    <input type='submit' name='submit'/>
+    </form>
+
+    <table>
+    <tr>
+    <td>NAME</td>
+    <td>AGE</td>
+    <td>HEIGHT</td>
+    <td>ACTION</td>
+    </tr>
+    <tr>
+    <form action='/test' method='put'>
+    <td><input type='text' value='{{name}}'></td>
+    <td><input type='number' value='{{age}}'></td>
+    <td><input type='number' value='{{height}}'></td>
+    <td><input type='submit' name='submit'/></td>
+    </form>
+    </tr>
+    </table>
